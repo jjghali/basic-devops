@@ -9,8 +9,6 @@ trigger:
 platform:
   os: linux
   arch: arm64
-workspace:
-  path: ./my-app
 
 steps:
   - name: helloworld
@@ -20,15 +18,16 @@ steps:
   - name: install-packages
     image: node:lts-alpine
     commands:
+      - cd my-app
       - npm install
 
   - name: lint
     image: node:lts-alpine
     commands:
-      # - cd my-app
+      - cd my-app
       - npm run lint
   - name: build
     image: node:lts-alpine
     commands:
-      # - cd my-app
+      - cd my-app
       - npm run build
