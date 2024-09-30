@@ -2,6 +2,9 @@
 kind: pipeline
 type: docker
 name: Hello world
+platform:
+  os: linux
+  arch: arm
 
 steps:
   - name: backend

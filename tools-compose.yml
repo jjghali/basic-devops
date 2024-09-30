@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   droneci:
     image: drone/drone:2
@@ -8,7 +6,6 @@ services:
       - 8443:443
     volumes:
       - ./drone-data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
     env_file: ".env"
     networks:
       - drone_net
@@ -17,15 +14,10 @@ services:
     image: drone/drone-runner-docker:1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 3000:3000
+    # ports:
+    #   - 3000:3000
     env_file: ".env"
-    links:
-      - droneci
-    depends_on:
-      - droneci
-    networks:
-      - drone_net
+    network_mode: service:droneci
 
 networks:
   drone_net:
