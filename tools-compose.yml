@@ -9,8 +9,7 @@ services:
     volumes:
       - ./drone-data:/data
       - /var/run/docker.sock:/var/run/docker.sock
-    env_file:
-      - .env
+    env_file: ".env"
     networks:
       - drone_net
 
@@ -20,13 +19,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3000:3000
-    environment:
-      - DRONE_RPC_PROTO=http
-      - DRONE_RPC_HOST=droneci
-      - DRONE_RPC_PORT=8081
-      - DRONE_RPC_SECRET=super-secret
-      - DRONE_RUNNER_CAPACITY=2
-      - DRONE_RUNNER_NAME=very-runner-such-fast
+    env_file: ".env"
     links:
       - droneci
     depends_on:

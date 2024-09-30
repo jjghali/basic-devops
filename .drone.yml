@@ -5,6 +5,6 @@ name: Hello world
 
 steps:
   - name: backend
-    image: golang
+    image: alpine
     commands:
       - echo "hello world"
