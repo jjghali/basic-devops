@@ -11,10 +11,15 @@ platform:
   arch: arm64
 
 steps:
-  - name: backend
+  - name: helloworld
     image: alpine
     commands:
       - echo "hello world"
+  - name: install-packages
+    image: node:lts-alpine
+    commands:
+      - npm install
+
   - name: lint
     image: node:lts-alpine
     commands:
