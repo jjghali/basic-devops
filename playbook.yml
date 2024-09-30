@@ -1,0 +1,16 @@
+---
+
+- name: Create example folder
+  hosts: localhost
+  tasks:
+    - name: Create folder
+      file:
+        path: /path/to/this-is-an-example
+        state: directory
+        mode: '0755'
+
+    - name: Create helloworld file
+      file:
+        path: /path/to/this-is-an-example/helloworld
+        state: touch
+        mode: '0644'
