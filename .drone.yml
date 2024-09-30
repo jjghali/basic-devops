@@ -4,7 +4,7 @@ type: docker
 name: Hello world
 platform:
   os: linux
-  arch: arm
+  arch: arm64
 
 steps:
   - name: backend
