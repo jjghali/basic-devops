@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  web: # hosts the content in the html folder and serves it on port 8080
+    image: nginx:alpine
+    ports:
+    - "8080:80"
+    volumes:
+    - ./html:/usr/share/nginx/html
